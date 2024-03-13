@@ -21,9 +21,9 @@ block content
                 p.quantity Quantity: #{item.quantity}
            
               div.box_btn
-                a(href=`/product/delete/:${item._id}`)
+                a(href=`/product/delete/${item._id}`)
                   button.delete.btn Delete
-                a(href=`/product/update/:${item._id}`)
+                a(href=`/product/update/${item._id}`)
                   button.edit.btn Update
               .review 
                 .box_view

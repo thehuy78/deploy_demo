@@ -1,0 +1,23 @@
+extends ../layout.pug
+block content 
+  h1 Update new Product 
+  form(action="/product/update" method="post"  enctype='multipart/form-data')
+    if product != ''
+      div
+        |ID 
+        input(type="text" name='_id' value=product._id readonly='true')
+      div 
+        label(for="name") Name
+        input(type="text" name='name' value=product.name)  
+      div 
+        label(for="price") Price
+        input(type="number" name='price' value=product.price) 
+      div 
+        label(for="quantity") Quantity
+        input(type="number" name='quantity' value=product.quantity)
+      div 
+        label(for="image") Image
+        img(src=`/images/${product.image}`)
+        input(type="file" name='image')  
+      div 
+        input(type="submit" value='Update')
