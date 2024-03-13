@@ -1,0 +1,26 @@
+extends ../layout.pug
+block content 
+  h3 
+    a(href='/product/create') Create new Product 
+  h1 List Products 
+  table 
+    thead 
+      tr
+        th ID 
+        th Name 
+        th Price 
+        th Quantity 
+        th Action 
+    tbody 
+      if product != ''
+        each item in product 
+          tr 
+            td= item.id 
+            td= item.name 
+            td= item.price 
+            td= item.quantity
+            td Delete
+      else
+        tr 
+          td(colspan='5') Not Data    
+          

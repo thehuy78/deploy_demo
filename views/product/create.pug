@@ -1,0 +1,15 @@
+extends ../layout.pug
+block content 
+  h1 Create new Product 
+  form(action="/product/create" method="post")
+    div 
+      label(for="name") Name
+      input(type="text" name='name')  
+    div 
+      label(for="price") Price
+      input(type="number" name='price') 
+    div 
+      label(for="quantity") Quantity
+      input(type="number" name='quantity') 
+    div 
+      input(type="submit" value='Create')
