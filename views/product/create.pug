@@ -1,7 +1,7 @@
 extends ../layout.pug
 block content 
   h1 Create new Product 
-  form(action="/product/create" method="post")
+  form(action="/product/create" method="post"  enctype='multipart/form-data')
     div 
       label(for="name") Name
       input(type="text" name='name')  
@@ -10,6 +10,9 @@ block content
       input(type="number" name='price') 
     div 
       label(for="quantity") Quantity
-      input(type="number" name='quantity') 
+      input(type="number" name='quantity')
+    div 
+      label(for="image") Image
+      input(type="file" name='image')  
     div 
       input(type="submit" value='Create')

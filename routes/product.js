@@ -1,8 +1,21 @@
 var express = require('express');
 var router = express.Router();
-// const productModel = require('../model/productModel')
-// const fetch = require('node-fetch')
+const multer = require('multer')
+const fs = require('fs');
 const axios = require('axios');
+
+
+let storaged = multer.diskStorage({
+  destination: function(req,res,cb){
+    cb(null,'./public/images')
+  },
+  filename: function(req,file,cb){
+    cb(null, `${file.fieldname}-${Date.now()}.jpg`)
+  }
+})
+
+const upload = multer({storage:storaged});
+
 
 
 const url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-mqyrb/endpoint/data/v1/action/find';
@@ -17,10 +30,8 @@ const headers = {
   'Access-Control-Request-Headers': '*',
   'api-key' : 'sMZh32ouebZNe3F9ydpGliMNh17J4iYoLyYgv6ClcWiSQ9KMGi1KUHvjMT6YYiwp'
 };
-
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  
   axios.post(url, data, { headers })
   .then(response => {
     console.log(response.data.documents);
@@ -29,8 +40,6 @@ router.get('/', async function(req, res, next) {
   .catch(error => {
     console.error(error);
   });
-  
-
 });
 
 router.get('/create',  function(req, res, next) {
@@ -38,9 +47,10 @@ router.get('/create',  function(req, res, next) {
 });
 
 
-router.post('/create', async function(req, res, next) {
+router.post('/create',upload.single('image'), async function(req, res, next) {
   var urls = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-mqyrb/endpoint/data/v1/action/insertOne';
-  const prod = req.body
+  let prod = req.body
+  let file = req.file
   const datas = {
     "collection":"products",
     "database":"test",
@@ -48,11 +58,10 @@ router.post('/create', async function(req, res, next) {
     "document": {
       "name": prod.name,
       "price": prod.price,
-      "quantity": prod.quantity
+      "quantity": prod.quantity,
+      "image":file.filename
     }
   };
-
-
   axios.post(urls, datas, { headers })
   .then(response => {
     console.log(response.data.documents);

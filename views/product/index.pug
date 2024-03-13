@@ -9,7 +9,8 @@ block content
         th ID 
         th Name 
         th Price 
-        th Quantity 
+        th Quantity
+        th Image
         th Action 
     tbody 
       if product != ''
@@ -19,6 +20,8 @@ block content
             td= item.name 
             td= item.price 
             td= item.quantity
+            td
+              img(src=`/images/${item.image}`, alt="")
             td Delete
       else
         tr 
