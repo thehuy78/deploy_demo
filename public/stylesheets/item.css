@@ -145,6 +145,7 @@ img{
   padding: 0.5rem 0;
   border: none;
   border-left: 0.08rem solid rgba(128, 128, 128, 0.204);
+  cursor: pointer;
 }
 .edit{
 width: 100%;
@@ -152,6 +153,7 @@ width: 100%;
   font-size: 1.2rem;
   padding: 0.5rem 0;
   border: none;
+  cursor: pointer;
 }
 .review{
   display: flex;
