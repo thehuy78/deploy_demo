@@ -1,0 +1,50 @@
+.list_item{
+  width: 100%;
+  display: grid;
+  background-color: aqua;
+  grid-template-columns: repeat(4,1fr);
+  height: max-content;
+  
+} 
+h1{
+  color: red;
+}
+.box_item{
+  padding: 0.5rem 1rem;
+}
+.item{
+border: 0.1rem solid black;
+}
+.box_image{
+  width: 20rem;
+  height: auto;
+  
+}
+img{
+  width: 100%;
+  height: auto;
+}
+.box_content{
+  width: 100%;
+}
+.name{
+  text-align: center;
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.box_price{
+  display: flex;
+  justify-content: space-around;
+}
+.price{
+  font-size: 1.3rem;
+  color: red;
+  font-weight: 600;
+  
+}
+.quantity{
+  font-size: 1.3rem;
+  color: rgba(128, 128, 128, 0.467);
+  font-weight: 600;
+}
