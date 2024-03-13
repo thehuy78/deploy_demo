@@ -1,7 +1,7 @@
 .list_item{
   width: 100%;
   display: grid;
-  background-color: aqua;
+  
   grid-template-columns: repeat(4,1fr);
   height: max-content;
   
@@ -13,7 +13,10 @@ h1{
   padding: 0.5rem 1rem;
 }
 .item{
-border: 0.1rem solid black;
+
+border-radius: 0.5rem;
+overflow: hidden;
+box-shadow:0 0 1rem rgba(128, 128, 128, 0.307);
 }
 .box_image{
   width: 20rem;
@@ -23,6 +26,9 @@ border: 0.1rem solid black;
 img{
   width: 100%;
   height: auto;
+  min-height: 18rem;
+  height: 100rem;
+  max-height: 18rem;
 }
 .box_content{
   width: 100%;
@@ -30,21 +36,88 @@ img{
 .name{
   text-align: center;
   color: black;
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 .box_price{
   display: flex;
   justify-content: space-around;
 }
 .price{
-  font-size: 1.3rem;
-  color: red;
+  font-size: 1.1rem;
+  color:  rgba(77, 77, 77, 0.828);
   font-weight: 600;
   
 }
 .quantity{
-  font-size: 1.3rem;
-  color: rgba(128, 128, 128, 0.467);
+  font-size: 1.1rem;
+  color: rgba(128, 128, 128, 0.705);
   font-weight: 600;
+}
+.box_btn{
+  display: flex;
+  justify-content: space-around;
+}
+.delete{
+  color: white;
+  background-color: rgb(157, 33, 33);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0.5rem rgba(128, 128, 128, 0.43);
+}
+.edit{
+  color: black;
+  background-color: lightsalmon;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0.5rem rgba(128, 128, 128, 0.43);
+}
+.review{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.view{
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: grey;
+}
+.fa-star{
+  color: rgb(255, 213, 6);
+  margin: 0 0.1rem;
+  font-size: 1rem;
+}
+.btn{
+ transition: 0.3s;
+}
+.btn:hover{
+ animation: shake ease-in-out 0.7s;
+}
+@keyframes shake {
+  0%{
+    transform: rotate(-3deg);
+  }
+  20%{
+    transform:rotate(3deg);
+  }
+  40%{
+    transform:rotate(-3deg);
+  }
+  60%{
+    transform:rotate(3deg);
+  }
+  80%{
+    transform:rotate(-3deg);
+  }
+  100%{
+    transform: rotate(0deg);;
+  }
 }
