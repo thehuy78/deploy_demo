@@ -1,3 +1,24 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.box_title{
+  display: flex;
+  justify-content: space-between;
+}
+.btn_create{
+  padding:1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 1.1rem;
+  color: white;
+  background-color: blue;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn_create:hover{
+  transform: scale(0.95);
+}
 .list_item{
   width: 100%;
   display: grid;
@@ -13,15 +34,15 @@ h1{
   padding: 0.5rem 1rem;
 }
 .item{
-
 border-radius: 0.5rem;
 overflow: hidden;
 box-shadow:0 0 1rem rgba(128, 128, 128, 0.307);
+transition: 0.2s;
 }
 .box_image{
-  width: 20rem;
+  width: 100%;
   height: auto;
-  
+  position: relative;
 }
 img{
   width: 100%;
@@ -30,92 +51,150 @@ img{
   height: 100rem;
   max-height: 18rem;
 }
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+ opacity: 0;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 150% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 1;
+    
+  }
+}
+.item:hover .overlay{
+  background: linear-gradient(135deg, 
+  rgba(255, 255, 255, 0)45%,  #ffffff6a 5%,  rgba(255, 255, 255, 0) 50%);
+  background-size: 200% 200%;
+
+  animation: gradientAnimation 1s ease;
+}
+
+.item:hover{
+  box-shadow:0 0 1.5rem rgba(128, 128, 128, 0.718);
+}
+
+
+
+
+
+
 .box_content{
   width: 100%;
+  padding: 0.3rem 0.5rem;
 }
 .name{
   text-align: center;
   color: black;
   font-size: 1.4rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.6rem;
+  height: fit-content;
+  max-height: 3.2rem;
+  overflow: hidden;
+  
+
+}
+.id{
+  width: 100%;
+  text-align: center;
+
+  padding-bottom: 0.5rem;
 }
 .box_price{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+ 
+  padding: 0;
 }
 .price{
-  font-size: 1.1rem;
-  color:  rgba(77, 77, 77, 0.828);
-  font-weight: 600;
-  
+  font-size: 1.15rem;
+  color:  rgba(255, 35, 35, 0.828);
+  font-weight: 500;
 }
+
 .quantity{
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: rgba(128, 128, 128, 0.705);
-  font-weight: 600;
+  font-weight: 500;
+
 }
 .box_btn{
+  width: 100%;
   display: flex;
   justify-content: space-around;
+ padding: 0.2rem 0.1rem;
+  border-top: 0.08rem solid rgba(128, 128, 128, 0.204);
+}
+.box_btn a{
+  width: 100%;
 }
 .delete{
-  color: white;
-  background-color: rgb(157, 33, 33);
+ width: 100%;
   font-weight: 600;
   font-size: 1.2rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 0;
   border: none;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 0.5rem rgba(128, 128, 128, 0.43);
+  border-left: 0.08rem solid rgba(128, 128, 128, 0.204);
 }
 .edit{
-  color: black;
-  background-color: lightsalmon;
+width: 100%;
   font-weight: 600;
   font-size: 1.2rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 0;
   border: none;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 0.5rem rgba(128, 128, 128, 0.43);
 }
 .review{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 0.7rem 0;
 }
-.view{
-  font-size: 1.1rem;
-  font-weight: 550;
+.box_view,
+.box_love,
+.box_ds{
+  font-size: 0.95rem;
   color: grey;
 }
-.fa-star{
-  color: rgb(255, 213, 6);
-  margin: 0 0.1rem;
-  font-size: 1rem;
+.box_view i,
+.box_love i {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+.box_ds p{
+  font-size: 0.9rem;
 }
 .btn{
  transition: 0.3s;
+ background-color: white;
 }
-.btn:hover{
+.btn:hover >.btn_i{
  animation: shake ease-in-out 0.7s;
 }
 @keyframes shake {
   0%{
-    transform: rotate(-3deg);
+    transform: rotate(-10deg);
   }
   20%{
-    transform:rotate(3deg);
+    transform:rotate(10deg);
   }
   40%{
-    transform:rotate(-3deg);
+    transform:rotate(-10deg);
   }
   60%{
-    transform:rotate(3deg);
+    transform:rotate(10deg);
   }
   80%{
-    transform:rotate(-3deg);
+    transform:rotate(-10deg);
   }
   100%{
     transform: rotate(0deg);;

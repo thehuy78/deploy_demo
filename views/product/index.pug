@@ -1,12 +1,10 @@
 extends ../layout.pug
-block content 
-  h3 
-    a(href='/product/create') Create new Product 
-  
-  h1 List Products
-  div 
-    input(type="text") 
-    
+block content
+  .box_title
+    h1 List Products 
+    h3 
+      a(href='/product/create') 
+        button.btn_create  Create new Product 
   if product != ''
     div.list_item
       each item in product
@@ -14,28 +12,31 @@ block content
           div.item
             div.box_image
               img(src=`/images/${item.image}`)
+              .overlay
             div.box_content
               p.name= item.name
+              p.id (#{item._id})
               div.box_price
-                p.price #{item.price} đ
-                p.quantity Quantity: #{item.quantity}
-           
-              div.box_btn
-                a(href=`/product/delete/${item._id}`)
-                  button.delete.btn Delete
-                a(href=`/product/update/${item._id}`)
-                  button.edit.btn Update
+                p.price
+                  span
+                    u đ
+                  |  #{item.price}
+                p.quantity Kho hàng: #{item.quantity}
               .review 
                 .box_view
-                  p.view 2340view
-                .boxstar
-                  i.fa-solid.fa-star
-                  i.fa-solid.fa-star
-                  i.fa-solid.fa-star
-                  i.fa-solid.fa-star
-                  i.fa-solid.fa-star
-                  i (5)
-                
+                  i.fa-solid.fa-eye  2340
+                .box_love
+                  i.fa-regular.fa-heart  30
+                .box_ds 
+                  p Doanh số 5
+            div.box_btn
+              a(href=`/product/update/${item._id}`)
+                button.edit.btn
+                  i.fa-solid.fa-wrench.btn_i
+              a(href=`/product/delete/${item._id}`)
+                button.delete.btn
+                  i.fa-solid.fa-trash.btn_i
+              
   else 
     div Not Data 
 
