@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const productModel = require('../model/productModel')
+// const productModel = require('../model/productModel')
 // const fetch = require('node-fetch')
 const axios = require('axios');
 
@@ -20,7 +20,7 @@ const headers = {
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  const product = await productModel.find();  
+  
   axios.post(url, data, { headers })
   .then(response => {
     console.log(response.data.documents);
@@ -33,7 +33,7 @@ router.get('/', async function(req, res, next) {
 
 });
 
-router.get('/create', async function(req, res, next) {
+router.get('/create',  function(req, res, next) {
   res.render('product/create');
 });
 
