@@ -12,14 +12,14 @@ const mongoose = require('mongoose')
 
 
 
-mongoose
-  .connect('mongodb+srv://thehuy78:passwordne@huy.jjdbnre.mongodb.net/test?retryWrites=true&w=majority&appName=huy')
-  .then(() => {
-    console.log("Connect to mongodb");
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// mongoose
+//   .connect('mongodb+srv://thehuy78:passwordne@huy.jjdbnre.mongodb.net/test?retryWrites=true&w=majority&appName=huy')
+//   .then(() => {
+//     console.log("Connect to mongodb");
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 var app = express();
 
 // view engine setup
