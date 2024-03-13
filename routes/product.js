@@ -39,9 +39,28 @@ router.get('/create',  function(req, res, next) {
 
 
 router.post('/create', async function(req, res, next) {
-  const data = req.body
- await productModel.create(data)
-  res.redirect('/product');
+  var urls = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-mqyrb/endpoint/data/v1/action/insertOne';
+  const prod = req.body
+  const datas = {
+    "collection":"products",
+    "database":"test",
+    "dataSource":"huy",
+    "document": {
+      "name": prod.name,
+      "price": prod.price,
+      "quantity": prod.quantity
+    }
+  };
+
+
+  axios.post(urls, datas, { headers })
+  .then(response => {
+    console.log(response.data.documents);
+    res.redirect('/product');
+  })
+  .catch(error => {
+    console.error(error);
+  });
 });
 
 module.exports = router;
