@@ -177,8 +177,15 @@ width: 100%;
  transition: 0.3s;
  background-color: white;
 }
+.btn_i{
+  color: grey;
+ }
+ .delete{
+  border-left: 0.05rem solid rgba(128, 128, 128, 0.411);
+ }
 .btn:hover >.btn_i{
  animation: shake ease-in-out 0.7s;
+ color: black;
 }
 @keyframes shake {
   0%{
