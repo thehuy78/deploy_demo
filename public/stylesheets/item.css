@@ -72,7 +72,7 @@ img{
 }
 .item:hover .overlay{
   background: linear-gradient(135deg, 
-  rgba(255, 255, 255, 0)45%,  #ffffff6a 5%,  rgba(255, 255, 255, 0) 50%);
+  rgba(255, 255, 255, 0)45%,  #ffffff9f 5%,  rgba(255, 255, 255, 0) 50%);
   background-size: 200% 200%;
 
   animation: gradientAnimation 1s ease;
@@ -157,9 +157,7 @@ width: 100%;
 }
 .review{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0.7rem 0;
+  justify-content: space-between;  
 }
 .box_view,
 .box_love,
@@ -173,7 +171,7 @@ width: 100%;
   font-weight: 400;
 }
 .box_ds p{
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 .btn{
  transition: 0.3s;

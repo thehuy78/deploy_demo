@@ -1,23 +1,27 @@
 extends ../layout.pug
+
 block content 
-  h1 Update new Product 
-  form(action="/product/update" method="post"  enctype='multipart/form-data')
-    if product != ''
-      div
-        |ID 
-        input(type="text" name='_id' value=product._id readonly='true')
-      div 
-        label(for="name") Name
-        input(type="text" name='name' value=product.name)  
-      div 
-        label(for="price") Price
-        input(type="number" name='price' value=product.price) 
-      div 
-        label(for="quantity") Quantity
-        input(type="number" name='quantity' value=product.quantity)
-      div 
-        label(for="image") Image
-        img(src=`/images/${product.image}`)
-        input(type="file" name='image')  
-      div 
-        input(type="submit" value='Update')
+  div.container
+    div.row.justify-content-center
+      div.col-md-6
+        h1.text-center Update new Product 
+        form(action="/product/update" method="post" enctype='multipart/form-data')
+          if product != ''
+            div.form-group
+              | ID 
+              input.form-control(type="text" name='_id' value=product._id readonly='true')
+            div.form-group
+              label(for="name") Name
+              input.form-control(type="text" name='name' value=product.name)  
+            div.form-group
+              label(for="price") Price
+              input.form-control(type="number" name='price' value=product.price) 
+            div.form-group
+              label(for="quantity") Quantity
+              input.form-control(type="number" name='quantity' value=product.quantity)
+            div.form-group
+              label(for="image") Image
+              img.img-fluid(src=`/images/${product.image}`)
+              input.form-control-file(type="file" name='image')  
+            div.form-group.text-center
+              input.btn.btn-primary(type="submit" value='Update')
